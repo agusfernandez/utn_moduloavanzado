@@ -21,8 +21,12 @@
         <a class="nav-link text-dark" href="index.php?ruta=registro">Registro</a>
     </li>
     <li class="nav-item">
+        <a class="nav-link text-dark" href="index.php?ruta=user_data.php">Listado</a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link text-dark" href="index.php?ruta=salir">Salir</a>
     </li>
+
     </ul>
     <div class="section-main">
             <?php

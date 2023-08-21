@@ -25,4 +25,14 @@ controlador -> intermediario entre lo que me pide el usuario y el mdelo
 
 6- controlador -> crear controlador de formularios
 
-7- conextar vista con controlador
+7- conectar vista con controlador
+
+Registro:
+
+En el modelo de registro se agrego los metodos (forms.model.php)
+-"seleccionar" los registros o ver un item -> con el Select ("seleccionamos el registro" y si coincide permitimos el ingreso). La idea del "seleccionar registro" es poder ver tosos los registros que tenemos para poder comparar si es el usuario que queremos o mostrarlos en una lista
+-actualizar los registros
+
+Luego en el controlador debo ingresar el modelo del "seleccionar" y el de login /que viene los datos a traves del metodo post
+
+dentro del controlador del login mas alla de la verificacion de datos usando el modelo de seleccionarreigstros ingresamos uns cript que te tira un mensaje en caso de que sea  incorrecto e evita la recarga de la pag (evita que el usuario vuelva a  mandar los datos del fomulario para volver atras )
