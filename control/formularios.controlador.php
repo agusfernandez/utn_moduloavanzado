@@ -32,33 +32,33 @@ Class ControlForms{
     //Login
 
     static public function ctrLogIn(){
-        if(isset($_POST['email-login'])){
+        if(isset($_POST["email-login"])){
             $table="registro";
             $item="email";
-            $value= $_POST['email-login'];
+            $value= $_POST["email-login"];
 
             $response= ModelForms::mdlSelectRegister($table, $item, $value);
 
-            if($response['email'] == $_POST['email-login'] && $response['password'] == $_POST['password-login']){
-                $_SESSION['validatelogin'] == "ok";
-                echo "<script>
+            if($response["email"] == $_POST["email-login"] && $response["password"] == $_POST["password-login"]){
+                $_SESSION["validateLogin"] = "ok";
+                echo '<script>
                         
                         /* si esta todo correcto q me lleve a esa ruta o la home*/
                         if(window.history.replaceState){
                             window.history.replaceState(null, null, window.location.href);
                         }
                         
-                        window.location = 'index.php?ruta=inicio';
-                </script>";
+                        window.location = "index.php?ruta=inicio";
+                </script>';
             } else {
 
-                echo "<script>
+                echo '<script>
 
                     if(window.history.replaceState){
                         window.history.replaceState(null,null,window.location.href);
                     }
     
-                </script>";
+                </script>';
 
                 echo "<div class='alert'>Error al ingresar el sistema. El email o la contraseña estan incorrectas</div>";
             }
@@ -96,7 +96,7 @@ Class ControlForms{
                          window.history.replaceState(null, null, window.location.href);
                      }
                      
-                     window.location= "index.php?ruta=inicio";
+                     window.location= "index.php?ruta=userdata";
                             
                 </script>';
                 

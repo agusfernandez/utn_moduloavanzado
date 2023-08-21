@@ -37,7 +37,7 @@ class ModelForms{
             return $smt -> fetchAll();
 
         } else {
-            $smt = Conexion::conectar()->prepare("SELECT *, DATE_FORMAT(date , '$%d/$%m/%Y') AS date FROM $table WHERE $item=:$item ORDER BY id DESC");
+            $smt = Conexion::conectar()->prepare("SELECT *, DATE_FORMAT(date , '$%d/$%m/%Y') AS date FROM $table WHERE $item = :$item ORDER BY id DESC");
 
             $smt -> bindParam(":" . $item, $value,  PDO::PARAM_STR);
 
