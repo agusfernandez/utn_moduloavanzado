@@ -47,7 +47,7 @@ Class ControlForms{
                         if(window.history.replaceState){
                             window.history.replaceState(null, null, window.location.href);
                         }
-                        
+                        /*que redirija a la home o a la lista de usuarios*/
                         window.location = "index.php?ruta=inicio";
                 </script>';
             } else {
@@ -96,7 +96,7 @@ Class ControlForms{
                          window.history.replaceState(null, null, window.location.href);
                      }
                      
-                     window.location= "index.php?ruta=userdata";
+                     window.location= "index.php?ruta=list";
                             
                 </script>';
                 
@@ -106,7 +106,7 @@ Class ControlForms{
 
     // Delete Register
 
-    static public function ctrDeleteRegister($table, $item, $value){
+    static public function ctrDeleteRegister($table, $value){
         $smt= Conexion::conectar()-> prepare ("DELETE FROM $table ORDER BY id DESC");
         $smt -> bindParam(":id" , $value);
 

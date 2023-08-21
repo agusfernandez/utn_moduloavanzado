@@ -21,7 +21,7 @@
         <a class="nav-link text-dark" href="index.php?ruta=registro">Registro</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark" href="index.php?ruta=userdata">Listado</a>
+        <a class="nav-link text-dark" href="index.php?ruta=list">Listado</a>
     </li>
     <li class="nav-item">
         <a class="nav-link text-dark" href="index.php?ruta=salir">Salir</a>
@@ -36,7 +36,7 @@
                         $_GET['ruta'] == 'inicio' ||
                         $_GET['ruta'] == 'ingreso' ||
                         $_GET['ruta'] == 'registro' ||
-                        $_GET['ruta'] == 'userdata' ||
+                        $_GET['ruta'] == 'list' ||
                         $_GET['ruta'] == 'salir'
                     ){
                         include "pages/" . $_GET['ruta'] . ".php";

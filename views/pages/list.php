@@ -1,4 +1,28 @@
+<?php
 
+    session_start();
+
+    if(!isset($_SESSION["validateLogin"])){
+
+        echo '<script>window.location = "index.php?ruta=ingreso";</script>';
+
+        return;
+
+    }else{
+
+        if($_SESSION["validateLogin"] != "ok"){
+
+            echo '<script>window.location = "index.php?ruta=ingreso";</script>';
+
+            return;
+        }
+
+    }
+
+$usuarios = ControlForms::ctrSelectRegister(null, null);
+
+
+?>
 
 
 <div class="row">
