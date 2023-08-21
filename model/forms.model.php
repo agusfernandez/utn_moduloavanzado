@@ -73,5 +73,17 @@ class ModelForms{
         $smt = null; // pasar nulos los datos por seguridad
     }
 
+    static public function mdlDeleteregister($table, $value){
+        $smt = Conexion::conectar()->prepare("DELETE FROM $table WHERE id=:id");
+        $smt -> bindParam(":id",  $value , PDO::PARAM_STR);
+        if($smt ->execute()){
+            return 'ejecutado';
+        }else{
+            print_r(Conexion::conectar()->errorInfo());
+        }
+        $smt -> closeCursor();
+        $smt = null;
+    }
+
 
 }

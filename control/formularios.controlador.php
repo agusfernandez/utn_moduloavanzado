@@ -107,19 +107,23 @@ Class ControlForms{
     // Delete Register
 
     static public function ctrDeleteRegister($table, $value){
-        $smt= Conexion::conectar()-> prepare ("DELETE FROM $table ORDER BY id DESC");
-        $smt -> bindParam(":id" , $value);
+        if (isset($_POST['deleteRegister'])){
+            $table="registro";
+            $value=$_POST['deleteRegister'];
+            $response= ModelForms::mdlDeleteregister($table, $value);
 
-        if($smt->execute() ){
-            return 'ok, perfecto';
-        } else {
-            print_r(Conexion::conectar()->errorInfo());
+            if($response == 'ok'){
+                echo '<script>
+                        
+                        if(window.history.replaceState){
+                            window.history.replaceState(null, null, window.location.href);
+                        }
+                        
+                        window.location = "index.php?ruta=list";
+            
+
+                </script>';
+            }
         }
-
-        $smt -> closeCursor();
-
-         $smt = null;
-
-
     }
 }    

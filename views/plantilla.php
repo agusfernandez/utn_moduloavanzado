@@ -37,6 +37,7 @@
                         $_GET['ruta'] == 'ingreso' ||
                         $_GET['ruta'] == 'registro' ||
                         $_GET['ruta'] == 'list' ||
+                        $_GET["ruta"] == 'editar' ||
                         $_GET['ruta'] == 'salir'
                     ){
                         include "pages/" . $_GET['ruta'] . ".php";
