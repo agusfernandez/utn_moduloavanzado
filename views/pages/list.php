@@ -57,8 +57,8 @@ $usuarios = ControlForms::ctrSelectRegister(null, null);
 
                         <?php
 
-                        $eliminar = new Conexion();
-                        $eliminar -> ctrEliminarRegistro();
+                        $eliminar = new ControlForms();
+                        $eliminar -> ctrDeleteRegister();
 
                         ?>
 
