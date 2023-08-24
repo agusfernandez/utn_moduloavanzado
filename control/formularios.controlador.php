@@ -39,17 +39,17 @@ Class ControlForms{
 
             $response= ModelForms::mdlSelectRegister($table, $item, $value);
 
-            if($response["email"] == $_POST["email-login"] && $response["password"] == $_POST["password-login"]){
-                $_SESSION["validateLogin"] = "ok";
-                echo '<script>
+            if($response['email'] == $_POST['email-login'] && $response['password'] == $_POST['password-login']){
+                $_SESSION['validateLogin'] = "ok";
+                echo "<script>
                         
                         /* si esta todo correcto q me lleve a esa ruta o la home*/
                         if(window.history.replaceState){
                             window.history.replaceState(null, null, window.location.href);
                         }
                         /*que redirija a la home o a la lista de usuarios*/
-                        window.location = "index.php?ruta=inicio";
-                </script>';
+                        window.location = 'index.php?ruta=list';
+                </script>";
             } else {
 
                 echo '<script>
@@ -60,7 +60,7 @@ Class ControlForms{
     
                 </script>';
 
-                echo "<div class='alert'>Error al ingresar el sistema. El email o la contraseña estan incorrectas</div>";
+                echo "<div class='alert alert-danger' role='alert'>Error al ingresar el sistema. El email o la contraseña estan incorrectas</div>";
             }
         }
     }
@@ -70,12 +70,11 @@ Class ControlForms{
 
     static public function ctrUpdateRegister(){
         if(isset($_POST['name-update'])){
-            if($_POST['password-new'] != ""){
-                $password= $_POST['password-new'];
-            } else {
+            if($_POST['password-update'] != ""){
                 $password= $_POST['password-update'];
+            } else {
+                $password= $_POST['passwordActual'];
                 }
-            }
 
             $table = "registro";
 
@@ -101,15 +100,17 @@ Class ControlForms{
                 </script>';
                 
             }
+
         }
+    }
 
 
     // Delete Register
 
-    static public function ctrDeleteRegister($table, $value){
-        if (isset($_POST['deleteRegister'])){
+    static public function ctrDeleteRegister(){
+        if (isset($_POST["deleteRegister"])){
             $table="registro";
-            $value=$_POST['deleteRegister'];
+            $value=$_POST["deleteRegister"];
             $response= ModelForms::mdlDeleteregister($table, $value);
 
             if($response == 'ok'){

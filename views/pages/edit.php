@@ -13,21 +13,21 @@
     <div class="mx-auto col-10 col-md-8 col-lg-6">
         <form action="" method="post" enctype="multipart/form-data">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" value="<?php echo $user['name']?>'" name="name-update" placeholder="Ingrese su nombre" required>
+                <input type="text" class="form-control" value="<?php echo $user['name']?>" name="name-update" placeholder="Ingrese su nombre" >
             </div>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" value="<?php echo $user['lastname']?>'" name="lastname-update" placeholder="Ingrese su apellido" required>
+                <input type="text" class="form-control" value="<?php echo $user['lastname']?>" name="lastname-update" placeholder="Ingrese su apellido" >
             </div>
             <div class="input-group mb-3">
-                <input type="email" class="form-control" value="<?php echo $user['email']?>'" name="email-update" placeholder="Ingrese su email" required>
+                <input type="email" class="form-control" value="<?php echo $user['email']?>" name="email-update" placeholder="Ingrese su email" >
             </div>
             <div class="input-group mb-3">
-                <input type="password" class="form-control" value="<?php echo $user['password']?>'" name="password-update" placeholder="Ingrese la contraseña" required>
+                <input type="password" class="form-control"  name="password-update" placeholder="Ingrese la contraseña" >
+
+                <input type="hidden" name="passwordActual" class="form-control" value="<?php echo $user["password"]; ?>">
+                <input type="hidden" name="iduser" class="form-control" value="<?php echo $user['id']?>" >
             </div>
 
-            <div class="input-group mb-3">
-                <input type="hidden" class="form-control" value="<?php echo $user['id']?>'" name="iduser" placeholder="Ingrese la contraseña" required>
-            </div>
 
             <?php
                 $updateInfo= ControlForms::ctrUpdateRegister();
@@ -41,7 +41,7 @@
                     
                     </script>';
 
-                    echo '<div class="alert alert-success">El usuario ha sido actualizado</div>
+                    echo '<div class="alert alert-success" role="alert">El usuario ha sido actualizado</div>
 
                     /*agrego timeout para que me mande el index*/
                     
@@ -57,6 +57,7 @@
                 }
 
             ?>
+
             <input type="submit" class="btn btn-dark" value="update">
         </form>
     </div>
