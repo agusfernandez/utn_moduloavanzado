@@ -17,34 +17,25 @@
             <?php
                 $register= ControlForms::ctrRegistro();
 
-                /*
-                if($register == "ok"){
-                    echo "<script>
+            if($register =="ok"){
 
-                        if(window.history.replaceState){
-                            window.history.replaceState(null, null, window.location.href);
-                        }
-                    
-                    
-                    </script>";
+                echo '<script> 
+                    if (window.history.replaceState){
+                    window.history.replaceState(null,null, window.location.href);
+                    }
+                    </script>';
 
-                    echo "<div class='alert alert-success' role='alert'> El usuario se ha registrado con exito</div>";
+                echo '<div class="alert alert-success" role="alert"> El usuario se ha registrado con exito </div>';
+            }
+            if ($register == "error"){
+                echo '<script> 
+                if (window.history.replaceState){
+                    window.history.replaceState(null,null, window.location.href);
+                }
+                </script>';
 
-                } else {
-
-                    echo "<script>
-
-                        if(window.history.replaceState){
-                            window.history.replaceState(null, null, window.location.href);
-                        }
-                    
-                    
-                    </script>";
-
-                    echo "<div class='alert alert-danger' role='alert'>Error, revisar los datos ingresados. </div>";
-
-
-                }*/
+                echo '<div class="alert alert-danger" role="alert"> Error, no se permiten caracteres especiales </div>';
+            }
             ?>           
             <input type="submit" class="btn btn-dark" value="enviar">       
         </form>
