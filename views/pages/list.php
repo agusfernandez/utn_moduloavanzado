@@ -31,16 +31,16 @@
             <div class="card" style="width: 18rem;">
 
                     <div class="card-body">
-                        <p class="card-text"><?php echo ($key+1); ?></p>
-                        <h5 class="card-title"><?php echo $value["name"]; ?></h5>
-                        <p class="card-text"><?php echo $value["email"]; ?></p>
-                        <p class="card-text"><?php echo $value["fecha"]; ?></p>
+                        <p class="card-text">Número de Registro: <?php echo ($key+1); ?></p>
+                        <h5 class="card-title">Nombre: <?php echo $value["name"]; ?></h5>
+                        <p class="card-text">Email: <?php echo $value["email"]; ?></p>
+                        <p class="card-text">Fecha: <?php echo $value["fecha"]; ?></p>
                         <div class="actions">
                             <a href="index.php?ruta=edit&id=<?php echo $value["id"]; ?>" class="btn btn-primary">Editar</a>
 
                             <form method="post">
                                 <input type="hidden" value="<?php echo $value["id"]; ?>" name="deleteRegister">
-                                <button type="submit" class="btn btn-primary">Borrar</button>
+                                <button type="submit" class="btn btn-secondary">Borrar</button>
                                 <?php
 
                                     $delete = new ControlForms();

@@ -30,3 +30,8 @@
     left: 0!important;
     height: 600px!important;
 }
+.actions{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}

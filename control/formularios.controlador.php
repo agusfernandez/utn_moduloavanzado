@@ -7,16 +7,25 @@ Class ControlForms{
     static public function ctrRegistro(){
         // si se escribe algo en el input
         if(isset($_POST["name"])){
-            $table = "registro";
-            $data = array(
-                "name" => $_POST['name'],
-                "lastname" => $_POST['lastname'],
-                "email" => $_POST['email'],
-                "password" => $_POST['password']
-            );
+            if(preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["name"]) &&
+                preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $_POST["email"]) &&
+                preg_match('/^[0-9a-zA-Z]+$/', $_POST["password"])){
 
-            $response= ModelForms::mdlRegister($table,$data);
-            return $response;
+                $table = "registro";
+
+                $encriptarPassword = crypt($_POST["password"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+
+                $data = array(
+                    "name" => $_POST['name'],
+                    "lastname" => $_POST['lastname'],
+                    "email" => $_POST['email'],
+                    "password" => $encriptarPassword
+                );
+
+                $response= ModelForms::mdlRegister($table,$data);
+                return $response;
+
+            }
 
         }
     }
@@ -39,7 +48,10 @@ Class ControlForms{
 
             $response= ModelForms::mdlSelectRegister($table, $item, $value);
 
-            if($response['email'] == $_POST['email-login'] && $response['password'] == $_POST['password-login']){
+            $encriptarPassword = crypt($_POST["password-login"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+
+
+            if($response['email'] == $_POST['email-login'] && $response['password'] == $encriptarPassword){
                 $_SESSION['validateLogin'] = "ok";
                 echo "<script>
                         

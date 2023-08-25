@@ -13,7 +13,7 @@ $('#email').change(function (){
     //peticion a ajax
 
     $.ajax({
-        url: "ajax/formularios.ajax.php",
+        url: "ajax/formulario.ajax.php",
         method: "POST",
         data: datos,
         cache: false,

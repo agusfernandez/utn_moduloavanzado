@@ -65,7 +65,6 @@ class ModelForms{
         $smt->bindParam(":password", $data["password"], PDO::PARAM_STR);
         $smt->bindParam(":id", $data["id"], PDO::PARAM_INT);
 
-
         if ($smt->execute()) {
             return "ok";
         } else {
