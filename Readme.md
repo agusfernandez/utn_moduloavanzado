@@ -1,3 +1,10 @@
+##### Resumen
+
+- armado de vistas para el front
+- conexion a base de datos
+- armado de controladores para el back
+
+
 ##### MVC
 modelo-vista-controlador
 
@@ -36,3 +43,7 @@ En el modelo de registro se agrego los metodos (forms.model.php)
 Luego en el controlador debo ingresar el modelo del "seleccionar" y el de login /que viene los datos a traves del metodo post
 
 dentro del controlador del login mas alla de la verificacion de datos usando el modelo de seleccionarreigstros ingresamos uns cript que te tira un mensaje en caso de que sea  incorrecto e evita la recarga de la pag (evita que el usuario vuelva a  mandar los datos del fomulario para volver atras )
+
+8- repetir lo mismo para las demas instancias
+
+9- encriptacion de password en base de datos

@@ -86,7 +86,7 @@ Class ControlForms{
                 $password= $_POST['password-update'];
             } else {
                 $password= $_POST['passwordActual'];
-                }
+            }
 
             $table = "registro";
 
